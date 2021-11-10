@@ -1,10 +1,12 @@
 import React from 'react';
 import store from '../store'
 const ProductSummary = () => {
-  console.log(store)
+  const product = store.getState().summary;
   return (
     <div>
-      <h1>{store.getState().summary?.id}</h1>
+      <img src={product?.image}/>
+      <h1>{product?.title}</h1>
+      <small>{product?.subtitle}</small>
     </div>
   )
 }
