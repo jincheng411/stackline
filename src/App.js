@@ -1,18 +1,20 @@
+import React, {useEffect, useState} from 'react';
+import SaleDetail from './components/SaleDetail.jsx';
+import axios from 'axios';
 
-import React from "react";
-import { hot } from 'react-hot-loader/root';
-
-class App extends React.Component {
-  render() {
-    const { name } = this.props;
-    return (
-      <>
-        <h1>
-          Hello {name}
-        </h1>
-      </>
-    );
-  }
+const App = () => {
+  const [product, setProduct] = useState([]);
+  useEffect(()=> {
+    axios.get('api/products/1')
+      .then(({data}) => {
+        setProduct(data)
+      })
+  },[])
+  return (
+    <div>
+      <SaleDetail product={product}/>
+    </div>
+  )
 }
 
-export default hot(App);
+export default App;
