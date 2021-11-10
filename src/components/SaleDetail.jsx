@@ -1,9 +1,9 @@
 import React from 'react';
 import ProductSummary from'./ProductSummary.jsx'
-const SaleDetail = ({product}) => {
+const SaleDetail = () => {
   return (
     <div>
-      <ProductSummary product={product}/>
+      <ProductSummary/>
     </div>
   )
 }

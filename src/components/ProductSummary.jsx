@@ -1,8 +1,10 @@
 import React from 'react';
-const ProductSummary = ({product}) => {
+import store from '../store'
+const ProductSummary = () => {
+  console.log(store)
   return (
     <div>
-      <h1>{product.title}</h1>
+      <h1>{store.getState().summary?.id}</h1>
     </div>
   )
 }

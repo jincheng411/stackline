@@ -8,13 +8,33 @@ const App = () => {
   useEffect(()=> {
     axios.get('api/products/1')
       .then(({data}) => {
+        store.dispatch({
+          type: 'SET_SUMMARY',
+          payload: {
+            id: data.id,
+            title: data.title,
+            image: data.image,
+            subtitle: data.subtitle
+          }
+        });
+        store.dispatch({
+          type: 'SET_TAGS',
+          payload: {
+            tags: data.tags
+          }
+        });
+        store.dispatch({
+          type: 'SET_SALES',
+          payload: {
+            sales: data.sales
+          }
+        })
         setProduct(data)
       })
   },[])
-  console.log(store)
   return (
     <div>
-      <SaleDetail product={product}/>
+      <SaleDetail/>
     </div>
   )
 }
