@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import SaleDetail from './components/SaleDetail.jsx';
 import axios from 'axios';
+import store from './store'
 
 const App = () => {
   const [product, setProduct] = useState([]);
@@ -10,6 +11,7 @@ const App = () => {
         setProduct(data)
       })
   },[])
+  console.log(store)
   return (
     <div>
       <SaleDetail product={product}/>
