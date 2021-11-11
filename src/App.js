@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import SaleDetail from './components/SaleDetail.jsx';
+import Navbar from './components/Navbar.jsx';
 import axios from 'axios';
 import store from './store'
 
@@ -34,6 +35,7 @@ const App = () => {
   },[])
   return (
     <div>
+      <Navbar />
       <SaleDetail/>
     </div>
   )
