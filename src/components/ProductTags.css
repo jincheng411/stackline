@@ -1,0 +1,10 @@
+.product_tags{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px 15px;
+}
+.product_tags>span{
+  padding: 5px 15px;
+  border: 1px solid rgb(189, 192, 196);
+  margin: 5px;
+}

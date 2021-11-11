@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import store from '../store';
 import * as d3 from 'd3';
+import './SaleChart.css';
+
 const SaleChart = () => {
   const sales = store.getState().sales || [];
   const parsedData = sales.map(sale => {
@@ -11,8 +13,8 @@ const SaleChart = () => {
   })
   drawChart(parsedData)
   function drawChart(data) {
-    const svgWidth = 800, svgHeight = 400;
-    const margin = { top: 20, right: 20, bottom: 30, left: 50 };
+    const svgWidth = 1300, svgHeight = 400;
+    const margin = { top: 60, right: 20, bottom: 30, left: 50 };
     const width = svgWidth - margin.left - margin.right;
     const height = svgHeight - margin.top - margin.bottom;
     const svg = d3.select('svg')
@@ -36,10 +38,12 @@ const SaleChart = () => {
       .call(d3.axisLeft(y))
       .append("text")
       .attr("fill", "#000")
-      .attr("x", 50)
-      .attr("dy", "2em")
+      .attr("x", 150)
+      .attr("font-size", "2.5em")
+      .attr("y", -80)
+      .attr("dy", "3em")
       .attr("text-anchor", "end")
-      .text("Price ($)");
+      .text("Retail Sales");
     g.append("path")
       .datum(data)
       .attr("fill", "none")
@@ -50,9 +54,8 @@ const SaleChart = () => {
       .attr("d", line);
   }
   return (
-    <div>
+    <div className="sale_chart">
       <svg />
-
     </div>
   )
 }

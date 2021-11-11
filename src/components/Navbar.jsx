@@ -1,5 +1,6 @@
 import React from 'react';
 import Logo from '../../dist/assets/stackline_logo.svg';
+import './Navbar.css'
 const Navbar = () => {
   return (
     <div className="navbar">

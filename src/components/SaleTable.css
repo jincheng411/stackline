@@ -1,0 +1,28 @@
+table {
+  font-size: 1.3em;
+  border-collapse: collapse;
+  margin: 25px 0;
+  min-width: 850px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  background-color: white;
+  color: grey;
+  width: 100%;
+}
+table thead tr {
+  text-align: left;
+  font-size: 0.8em;
+  border-bottom: 1px solid #dddd;
+}
+table thead tr :hover{
+  color: black;
+  cursor: pointer;
+}
+table th,
+table td {
+  padding: 22px 12px;
+  min-width: 80px;
+}
+table tbody tr {
+  border-bottom: 1px solid #dddd;
+}

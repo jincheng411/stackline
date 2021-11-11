@@ -1,14 +1,15 @@
-body {
-  margin: 0px;
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
-  background-color: rgb(246, 248, 250);
-}
 .sale_detail {
   display: flex;
   flex-direction: row;
   margin: 80px 20px;
 }
 .sale_detail_left {
+  background-color: white;
+  margin-right: 20px;
+  width: 350px;
+  height: 100%;
+}
+.sale_detail_right {
   background-color: white;
   margin-right: 20px;
   width: 350px;

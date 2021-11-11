@@ -1,12 +1,15 @@
 import React from 'react';
-import store from '../store'
+import store from '../store';
+import './ProductSummary.css';
+import './ProductTags.css';
+
 const ProductTags = () => {
   const tags = store.getState().tags;
   return (
-    <div>
+    <div className="product_tags">
       {
         tags?.map(tag => {
-          return <span>{tag}</span>
+          return <span key={tag}>{tag}</span>
         })
       }
     </div>
