@@ -1,7 +1,8 @@
 
 .cache/
 coverage/
-dist/*
+dist/bundle.js
+
 !dist/index.html
 node_modules/
 *.log
