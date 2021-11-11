@@ -1,0 +1,17 @@
+body{
+  margin: 0px;
+}
+.navbar {
+  background-color: rgb(8,39,73);
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+.navbar>span{
+  width: 260px;
+  margin-left: 15px;
+}
+.navbar>span:hover{
+  cursor: pointer;
+}
