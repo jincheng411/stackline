@@ -1,10 +1,14 @@
-import React, { useEffect, useRef } from 'react';
+import React, {useEffect, useState} from 'react';
+import { useSelector } from 'react-redux';
 import store from '../store';
 import * as d3 from 'd3';
 import './SaleChart.css';
 
 const SaleChart = () => {
-  const sales = store.getState().sales || [];
+  const getSales = (state) => state.sales;
+  const getCurrent = (state) => state.currentChart;
+  const sales = useSelector(getSales);
+  const currentChart = useSelector(getCurrent);
   const parsedData = sales.map(sale => {
     return {
       ...sale,
@@ -26,35 +30,29 @@ const SaleChart = () => {
     const y = d3.scaleLinear().rangeRound([height, 0]);
     const line = d3.line()
       .x(function (d) { return x(d.weekEnding) })
-      .y(function (d) { return y(d.retailSales) })
+      .y(function (d) { return y(d[currentChart.chart]) })
     x.domain(d3.extent(data, function (d) { return d.weekEnding }));
-    y.domain(d3.extent(data, function (d) { return d.retailSales }));
+    y.domain(d3.extent(data, function (d) { return d[currentChart.chart] }));
     g.append("g")
       .attr("transform", "translate(20," + height + ")")
       .call(d3.axisBottom(x))
+      .attr("font-size", "1.1em")
+      .attr("color", "grey")
       .select(".domain")
       .remove();
-    g.append("g")
-      .call(d3.axisLeft(y))
-      .append("text")
-      .attr("fill", "#000")
-      .attr("x", 150)
-      .attr("font-size", "2.5em")
-      .attr("y", -80)
-      .attr("dy", "3em")
-      .attr("text-anchor", "end")
-      .text("Retail Sales");
     g.append("path")
       .datum(data)
       .attr("fill", "none")
-      .attr("stroke", "steelblue")
+      .attr("stroke", currentChart.color)
       .attr("stroke-linejoin", "round")
       .attr("stroke-linecap", "round")
       .attr("stroke-width", 3)
       .attr("d", line);
+
   }
   return (
     <div className="sale_chart">
+      <h1 style={{color: currentChart.color}}>{currentChart.description}</h1>
       <svg />
     </div>
   )

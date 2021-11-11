@@ -1,3 +1,9 @@
 .sale_chart{
   background-color: white;
 }
+.sale_chart > h1 {
+  padding: 20px;
+  font-weight: 300;
+  font-size: 1.5em;
+  color: rgb(97, 96, 96);
+}

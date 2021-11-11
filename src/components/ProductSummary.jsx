@@ -1,7 +1,11 @@
 import React from 'react';
-import store from '../store'
+import store from '../store';
+import { useSelector } from 'react-redux';
+import './ProductSummary.css';
+
 const ProductSummary = () => {
-  const product = store.getState().summary;
+  const getProduct = (state) => state.summary;
+  const product = useSelector(getProduct);
   return (
     <div className="product_summary">
       <img src={product?.image}/>

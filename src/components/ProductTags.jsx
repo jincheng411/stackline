@@ -1,10 +1,11 @@
 import React from 'react';
 import store from '../store';
-import './ProductSummary.css';
+import { useSelector } from 'react-redux';
 import './ProductTags.css';
 
 const ProductTags = () => {
-  const tags = store.getState().tags;
+  const getTags = (state) => state.tags;
+  const tags = useSelector(getTags);
   return (
     <div className="product_tags">
       {

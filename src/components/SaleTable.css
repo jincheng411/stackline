@@ -1,10 +1,9 @@
 table {
   font-size: 1.3em;
   border-collapse: collapse;
-  margin: 25px 0;
+  margin: 55px 0;
   min-width: 850px;
   border-radius: 5px 5px 0 0;
-  overflow: hidden;
   background-color: white;
   color: grey;
   width: 100%;
@@ -25,4 +24,7 @@ table td {
 }
 table tbody tr {
   border-bottom: 1px solid #dddd;
+}
+.selected {
+  color: black;
 }
